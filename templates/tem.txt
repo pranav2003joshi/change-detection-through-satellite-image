@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buildup Change Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h1 {
+            background-color: #444;
+            color: #fff;
+            padding: 40px;
+            text-align: center;
+            animation: fadeInUp 1s ease;
+            font-size: 36px;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px;
+            padding: 40px;
+            background-color: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            animation: fadeInUp 1s ease;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        input[type="file"] {
+            width: 100%;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 2px solid #777;
+            border-radius: 6px;
+            background-color: #444;
+            color: #fff;
+            transition: background-color 0.3s ease;
+            font-size: 22px;
+        }
+        input[type="file"]:hover {
+            background-color: #555;
+        }
+        input[type="submit"] {
+            background-color: #ACB8DC;
+            color: #00FF16;
+            padding: 24px 48px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 24px;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .redirect-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 24px 48px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 30px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+            font-size: 24px;
+        }
+        .redirect-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Change Detection</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="files[]" multiple>
+            <input type="submit" value="Upload">
+        </form>
+        {% if output %}
+            <h2>Output:</h2>
+            <pre>{{ output }}</pre>
+        {% endif %}
+    </div>
+</body>
+</html>
